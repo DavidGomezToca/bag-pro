@@ -10,7 +10,7 @@
 
 - **STACK :**
 
-  - **Bag Pro** : `0.1.0`
+  - **Bag Pro** : `0.2.0`
   - **React** : `18.3.1`
   - **React Dom** : `18.3.1`
 
@@ -18,7 +18,7 @@
 
 - **URLS :**
 
-  - **Website : [Slice Delight](https://bag-pro.netlify.app)**
+  - **Website : [Bag Pro](https://bag-pro.netlify.app)**
 
 ---
 
