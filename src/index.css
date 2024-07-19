@@ -139,3 +139,11 @@ input[type="checkbox"] {
   font-size: 15px;
   color: rgba(0, 0, 0, 0.5);
 }
+
+.swal2-text {
+  font-size: 18px !important;
+}
+
+.swal2-popup {
+  font-size: 12px !important;
+}

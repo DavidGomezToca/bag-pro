@@ -1,10 +1,11 @@
-import { useState } from 'react';
 import Logo from "./Logo";
 import Form from "./Form";
-import PackingList from './PackingList';
 import Stats from './Stats';
-import VersionWatermark from './VersionWatermark';
+import Swal from "sweetalert2";
+import { useState } from 'react';
+import PackingList from './PackingList';
 import ItemsData from '../data/ItemsData';
+import VersionWatermark from './VersionWatermark';
 
 const initialItems = new Array(ItemsData.items.length);
 ItemsData.items.forEach(element => {
@@ -27,11 +28,48 @@ export default function App() {
   };
 
   function handleClearList() {
-    const confirmed = window.confirm("Are you sure you want to delete all items?")
-
-    if (confirmed) {
-      setItems([]);
-    };
+    if (items.length > 0) {
+      Swal.fire({
+        title: "You want to clear the list?",
+        text: "You won't be able to revert this!",
+        icon: "question",
+        showCancelButton: true,
+        confirmButtonColor: "#3085d6",
+        cancelButtonColor: "#d33",
+        confirmButtonText: "Yes, clear it!",
+        customClass: {
+          htmlContainer: "swal2-text",
+          confirmButton: "swal2-text",
+          cancelButton: "swal2-text",
+          popup: "swal2-popup"
+        }
+      }).then((result) => {
+        if (result.isConfirmed) {
+          setItems([]);
+          Swal.fire({
+            title: "Cleared!",
+            text: "The list has been cleared.",
+            icon: "success",
+            customClass: {
+              htmlContainer: "swal2-text",
+              popup: "swal2-popup",
+              confirmButton: "swal2-text"
+            }
+          });
+        }
+      });
+    } else {
+      Swal.fire({
+        title: "The list is already clear!",
+        text: "¡Add some items to your packing list!",
+        icon: "info",
+        customClass: {
+          htmlContainer: "swal2-text",
+          popup: "swal2-popup",
+          confirmButton: "swal2-text"
+        }
+      });
+    }
   };
 
   return (
