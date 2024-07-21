@@ -140,6 +140,11 @@ input[type="checkbox"] {
   color: rgba(0, 0, 0, 0.5);
 }
 
+input,
+select {
+  outline: none;
+}
+
 .swal2-text {
   font-size: 18px !important;
 }
