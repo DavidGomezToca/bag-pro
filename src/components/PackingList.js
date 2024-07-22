@@ -15,7 +15,7 @@ export default function PackingList({ items, onDeleteItem, onToggleItem, onClear
             <div className="actions">
                 <select value={sortBy} onChange={e => setSortBy(e.target.value)}>
                     <option value="input">Sort by input order</option>
-                    <option value="description">Sort by description</option>
+                    <option value="description">Sort by name</option>
                     <option value="packed">Sort by packed status</option>
                 </select>
                 <button onClick={onClearList}>Clear list</button>

@@ -5,7 +5,6 @@ import Swal from "sweetalert2";
 import { useState } from 'react';
 import PackingList from './PackingList';
 import ItemsData from '../data/ItemsData';
-import VersionWatermark from './VersionWatermark';
 
 const initialItems = new Array(ItemsData.items.length);
 ItemsData.items.forEach(element => {
@@ -78,7 +77,6 @@ export default function App() {
       <Form onAddItems={handleAddItems} />
       <PackingList items={items} onDeleteItem={handleDeleteItem} onToggleItem={handleToggleItem} onClearList={handleClearList} />
       <Stats items={items} />
-      <VersionWatermark />
     </div>
   );
 };
