@@ -10,7 +10,7 @@
 
 - **STACK :**
 
-  - **Bag Pro** : `1.3.0`
+  - **Bag Pro** : `1.4.0`
   - **React** : `18.3.1`
   - **React Dom** : `18.3.1`
   - **SweetAlert2** : `11.12.3`

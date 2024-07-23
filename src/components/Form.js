@@ -20,12 +20,16 @@ export default function Form({ onAddItems }) {
             <div>
                 <h3>What do you need for your trip?</h3>
             </div>
-            <div>
-                <select value={quantity} onChange={(e) => setQuantity(Number(e.target.value))}>
-                    {Array.from({ length: 5 }, (_, i) => i + 1).map(num => (<option value={num} key={num}>{num}</option>))}
-                </select>
-                <input type="text" placeholder="Item..." value={description} onChange={(e) => setDescription(e.target.value)} />
-                <button>Add</button>
+            <div className="form-inputs">
+                <div>
+                    <select value={quantity} onChange={(e) => setQuantity(Number(e.target.value))}>
+                        {Array.from({ length: 5 }, (_, i) => i + 1).map(num => (<option value={num} key={num}>{num}</option>))}
+                    </select>
+                    <input type="text" placeholder="Item..." maxLength="10" value={description} onChange={(e) => setDescription(e.target.value)} />
+                </div>
+                <div>
+                    <button>Add</button>
+                </div>
             </div>
         </form >
     );
