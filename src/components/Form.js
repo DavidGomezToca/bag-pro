@@ -1,18 +1,21 @@
 import { useState } from "react";
 
-export default function Form({ onAddItems }) {
+export default function Form({ items, addItem, addItemQuantity, setItemFalse }) {
     const [description, setDescription] = useState("");
     const [quantity, setQuantity] = useState(1);
 
     function handleSubmit(e) {
         e.preventDefault();
-        if (!description) {
-            return
-        };
+        if (!description) return;
         let capitalizedDescription = description.charAt(0).toUpperCase() + description.slice(1).toLowerCase();
-        const newItem = ([Date.now(), capitalizedDescription, quantity, false]);
-        console.log(newItem);
-        onAddItems(newItem);
+        let originalItemID = items.find(item => item[1] === capitalizedDescription)?.[0];
+        if (originalItemID !== undefined) {
+            addItemQuantity(originalItemID, quantity);
+            setItemFalse(originalItemID);
+        } else {
+            const newItem = [Date.now(), capitalizedDescription, quantity, false];
+            addItem(newItem);
+        }
         setDescription("");
         setQuantity(1);
     };

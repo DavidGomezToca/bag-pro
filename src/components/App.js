@@ -14,13 +14,21 @@ ItemsData.items.forEach(element => {
 export default function App() {
   const [items, setItems] = useState(initialItems);
 
-  function handleAddItems(item) {
+  function handleAddItem(item) {
     setItems(items => [...items, item]);
   };
 
   function handleDeleteItem(id) {
     setItems(items => items.filter(item => item[0] !== id));
   };
+
+  function addItemQuantity(id, quantity) {
+    setItems(items => items.map(item => item[0] === id ? { ...item, 2: item[2] + quantity } : item));
+  }
+
+  function setItemFalse(id) {
+    setItems(items => items.map(item => item[0] === id ? { ...item, 3: false } : item));
+  }
 
   function handleToggleItem(id) {
     setItems(items => items.map(item => item[0] === id ? { ...item, 3: !item[3] } : item));
@@ -74,7 +82,7 @@ export default function App() {
   return (
     <div className="app">
       <Logo />
-      <Form onAddItems={handleAddItems} />
+      <Form items={items} addItem={handleAddItem} addItemQuantity={addItemQuantity} setItemFalse={setItemFalse} />
       <PackingList items={items} onDeleteItem={handleDeleteItem} onToggleItem={handleToggleItem} onClearList={handleClearList} />
       <Stats items={items} />
     </div>
