@@ -1,6 +1,6 @@
 import Logo from "./Logo";
 import Form from "./Form";
-import Stats from './Stats';
+import Stats from './Footer';
 import Swal from "sweetalert2";
 import { useState } from 'react';
 import PackingList from './PackingList';

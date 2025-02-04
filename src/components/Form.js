@@ -28,7 +28,7 @@ export default function Form({ onAddItems }) {
                     <input type="text" placeholder="Item..." maxLength="10" value={description} onChange={(e) => setDescription(e.target.value)} />
                 </div>
                 <div>
-                    <button>Add</button>
+                    <button className={`${description ? "" : "disabled"}`}>Add</button>
                 </div>
             </div>
         </form >
