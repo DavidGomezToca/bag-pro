@@ -9,7 +9,9 @@ export default function Form({ onAddItems }) {
         if (!description) {
             return
         };
-        const newItem = ([Date.now(), description, quantity, false]);
+        let capitalizedDescription = description.charAt(0).toUpperCase() + description.slice(1).toLowerCase();
+        const newItem = ([Date.now(), capitalizedDescription, quantity, false]);
+        console.log(newItem);
         onAddItems(newItem);
         setDescription("");
         setQuantity(1);
