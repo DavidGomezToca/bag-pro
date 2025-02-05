@@ -2,6 +2,18 @@
   "items": [
     { "id": 0, "description": "Passports", "quantity": 2, "packed": false },
     { "id": 1, "description": "Socks", "quantity": 12, "packed": false },
-    { "id": 2, "description": "Charger", "quantity": 1, "packed": false }
+    { "id": 2, "description": "Charger", "quantity": 1, "packed": false },
+    { "id": 3, "description": "Toothbrush", "quantity": 1, "packed": true },
+    { "id": 4, "description": "T-shirts", "quantity": 5, "packed": false },
+    { "id": 5, "description": "Jeans", "quantity": 2, "packed": false },
+    { "id": 6, "description": "Jacket", "quantity": 1, "packed": false },
+    { "id": 7, "description": "Hat", "quantity": 1, "packed": false },
+    { "id": 8, "description": "Gloves", "quantity": 1, "packed": false },
+    { "id": 9, "description": "Umbrella", "quantity": 1, "packed": true },
+    { "id": 10, "description": "Camera", "quantity": 1, "packed": false },
+    { "id": 11, "description": "Laptop", "quantity": 1, "packed": false },
+    { "id": 12, "description": "Notebook", "quantity": 2, "packed": false },
+    { "id": 13, "description": "Pen", "quantity": 5, "packed": true },
+    { "id": 14, "description": "Sunglasses", "quantity": 1, "packed": true }
   ]
 }

@@ -27,13 +27,13 @@ export default function Form({ items, addItem, addItemQuantity, setItemFalse }) 
             </div>
             <div className="form-inputs">
                 <div>
-                    <select value={quantity} onChange={(e) => setQuantity(Number(e.target.value))}>
+                    <select id="quantity" name="quantity" value={quantity} onChange={(e) => setQuantity(Number(e.target.value))}>
                         {Array.from({ length: 5 }, (_, i) => i + 1).map(num => (<option value={num} key={num}>{num}</option>))}
                     </select>
-                    <input type="text" placeholder="Item..." maxLength="10" value={description} onChange={(e) => setDescription(e.target.value)} />
+                    <input id="item_name" name="item_name" type="text" placeholder="Item..." maxLength="10" value={description} onChange={(e) => setDescription(e.target.value)} />
                 </div>
                 <div>
-                    <button className={`${description ? "" : "disabled"}`}>Add</button>
+                    <button type="submit" className={`${description ? "" : "disabled"}`}>Add</button>
                 </div>
             </div>
         </form >
