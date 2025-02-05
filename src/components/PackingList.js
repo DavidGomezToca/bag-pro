@@ -1,25 +1,76 @@
-import { useState } from "react";
-import Item from "./Item";
+import Item from "./Item"
+import { useState } from "react"
 
+/**
+ * @component PackingList.
+ * @param {array[items]} items - The items list.
+ * @param {function} onDeleteItem - Deletes an item from the list.
+ * @param {function} onToggleItem - Toggles the packed status of an item.
+ * @param {function} onClearList - Confirms the clearing of the list.
+ * @returns {JSX.Element} - The PackingList component.
+ */
 export default function PackingList({ items, onDeleteItem, onToggleItem, onClearList }) {
-    const [sortBy, setSortBy] = useState("input");
-    const [page, setPage] = useState(0);
-    const itemsPerPage = 10;
-    let sortedItems;
+    /**
+     * Sort method.
+     * @type {string, function}.
+     */
+    const [sortBy, setSortBy] = useState("input")
 
-    if (sortBy === "input") sortedItems = items;
-    if (sortBy === "description") sortedItems = items.slice().sort((a, b) => a[1].localeCompare(b[1]));
-    if (sortBy === "packed") sortedItems = items.slice().sort((a, b) => Number(a[3]) - Number(b[3]));
+    /**
+     * Current page.
+     * @type {number, function}.
+     */
+    const [page, setPage] = useState(0)
 
-    const totalPages = Math.ceil(sortedItems.length / itemsPerPage);
-    const paginatedItems = sortedItems.slice(page * itemsPerPage, (page + 1) * itemsPerPage);
+    /**
+     * Quantity of items per page.
+     * @type {number}.
+     */
+    const itemsPerPage = 10
 
-    function handlePrevPage() {
-        setPage(prev => (prev === 0 ? totalPages - 1 : prev - 1));
+    /**
+     * Sorted items.
+     * @type {object}.
+     */
+    let sortedItems
+    switch (sortBy) {
+        case "input":
+            sortedItems = items
+            break
+        case "description":
+            sortedItems = items.slice().sort((a, b) => a[1].localeCompare(b[1]))
+            break
+        case "packed":
+            sortedItems = items.slice().sort((a, b) => Number(a[3]) - Number(b[3]))
+            break
+        default:
+            sortedItems = items
     }
 
+    /**
+     * Total number of pages.
+     * @type {number}.
+     */
+    const totalPages = Math.ceil(sortedItems.length / itemsPerPage)
+
+    /**
+     * Paginated items.
+     * @type {object}.
+     */
+    const paginatedItems = sortedItems.slice(page * itemsPerPage, (page + 1) * itemsPerPage)
+
+    /**
+     * Handles going to the previous page.
+     */
+    function handlePrevPage() {
+        setPage(prev => (prev === 0 ? totalPages - 1 : prev - 1))
+    }
+
+    /**
+     * Handles going to the next page.
+     */
     function handleNextPage() {
-        setPage(prev => (prev >= totalPages - 1 ? 0 : prev + 1));
+        setPage(prev => (prev >= totalPages - 1 ? 0 : prev + 1))
     }
 
     return (
@@ -38,18 +89,14 @@ export default function PackingList({ items, onDeleteItem, onToggleItem, onClear
                     </select>
                 </div>
                 <div className="pagination">
-                    <button onClick={handlePrevPage}>
-                        ◀ Previous
-                    </button>
-                    <span> Page {page + 1} of {totalPages} </span>
-                    <button onClick={handleNextPage}>
-                        Next ▶
-                    </button>
+                    <button onClick={handlePrevPage}>◀ Previous</button>
+                    <span>Page {page + 1} of {totalPages}</span>
+                    <button onClick={handleNextPage}>Next ▶</button>
                 </div>
                 <div>
                     <button onClick={onClearList}>Clear list</button>
                 </div>
             </div>
         </div>
-    );
-};
+    )
+}

@@ -1,24 +1,50 @@
-import { useState } from "react";
+import { useState } from "react"
 
+/**
+ * @component Form.
+ * @param {array[items]} items - The items list.
+ * @param {function} addItem - Adds a new item to the list.
+ * @param {function} addItemQuantity - Increases the quantity of an existing item.
+ * @param {function} setItemFalse - Sets the packed status of an item to false.
+ * @returns {JSX.Element} - The Form component.
+ */
 export default function Form({ items, addItem, addItemQuantity, setItemFalse }) {
-    const [description, setDescription] = useState("");
-    const [quantity, setQuantity] = useState(1);
+    /**
+     * Description of the item submitted.
+     * @type {string, function}.
+     */
+    const [description, setDescription] = useState("")
 
+    /**
+     * Quantity of the item submitted.
+     * @type {number, function}.
+     */
+    const [quantity, setQuantity] = useState(1)
+
+    /**
+     * Proces the submit.
+     * @param {React.FormEvent} e - The form submission event.
+     */
     function handleSubmit(e) {
-        e.preventDefault();
-        if (!description) return;
-        let capitalizedDescription = description.charAt(0).toUpperCase() + description.slice(1).toLowerCase();
-        let originalItemID = items.find(item => item[1] === capitalizedDescription)?.[0];
+        e.preventDefault()
+        // If the description is empty, return.
+        if (!description) return
+        let capitalizedDescription = description.charAt(0).toUpperCase() + description.slice(1).toLowerCase()
+        let originalItemID = items.find(item => item[1] === capitalizedDescription)?.[0]
+        // If the item already exists, increase the quantity.
         if (originalItemID !== undefined) {
-            addItemQuantity(originalItemID, quantity);
-            setItemFalse(originalItemID);
-        } else {
-            const newItem = [Date.now(), capitalizedDescription, quantity, false];
-            addItem(newItem);
+            addItemQuantity(originalItemID, quantity)
+            setItemFalse(originalItemID)
         }
-        setDescription("");
-        setQuantity(1);
-    };
+        // If the item is not in the list, add it.
+        else {
+            const newItem = [Date.now(), capitalizedDescription, quantity, false]
+            addItem(newItem)
+        }
+        // Reset the form.
+        setDescription("")
+        setQuantity(1)
+    }
 
     return (
         <form className="add-form" onSubmit={handleSubmit}>
@@ -37,5 +63,5 @@ export default function Form({ items, addItem, addItemQuantity, setItemFalse }) 
                 </div>
             </div>
         </form >
-    );
-};
+    )
+}
