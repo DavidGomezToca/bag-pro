@@ -63,6 +63,7 @@ export default function PackingList({ items, onDeleteItem, onToggleItem, onClear
      * Handles going to the previous page.
      */
     function handlePrevPage() {
+        if (totalPages === 0) return
         setPage(prev => (prev === 0 ? totalPages - 1 : prev - 1))
     }
 
@@ -73,13 +74,25 @@ export default function PackingList({ items, onDeleteItem, onToggleItem, onClear
         setPage(prev => (prev >= totalPages - 1 ? 0 : prev + 1))
     }
 
+    /**
+     * Handles clearing the list.
+     */
+    function handleClearList() {
+        setPage(0)
+        onClearList()
+    }
+
     return (
         <div className="list">
-            <ul>
-                {paginatedItems.map(item => (
-                    <Item item={item} key={item[0]} onDeleteItem={onDeleteItem} onToggleItem={onToggleItem} />
-                ))}
-            </ul>
+            {sortedItems.length === 0 ? (
+                <p className="list-empty">List empty...</p>
+            ) : (
+                <ul> {
+                    paginatedItems.map(item => (
+                        <Item item={item} key={item[0]} onDeleteItem={onDeleteItem} onToggleItem={onToggleItem} />
+                    ))}
+                </ul>
+            )}
             <div className="actions">
                 <div>
                     <select id="type-sort" name="type-sort" value={sortBy} onChange={e => setSortBy(e.target.value)}>
@@ -90,11 +103,11 @@ export default function PackingList({ items, onDeleteItem, onToggleItem, onClear
                 </div>
                 <div className="pagination">
                     <button onClick={handlePrevPage}>◀ Previous</button>
-                    <span>Page {page + 1} of {totalPages}</span>
+                    <span>Page {totalPages === 0 ? page : page + 1} of {totalPages}</span>
                     <button onClick={handleNextPage}>Next ▶</button>
                 </div>
                 <div>
-                    <button onClick={onClearList}>Clear list</button>
+                    <button onClick={handleClearList}>Clear list</button>
                 </div>
             </div>
         </div>
