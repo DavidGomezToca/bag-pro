@@ -1,4 +1,5 @@
 import Swal from "sweetalert2"
+import SocialMedia from "./SocialMedia"
 
 /**
  * @component Footer.
@@ -30,6 +31,7 @@ export default function Footer({ items }) {
             <footer>
                 <p className="stats">
                     <em>Start adding some items to your packing list ✈</em>
+                    <SocialMedia />
                 </p>
             </footer>
         )
@@ -51,6 +53,7 @@ export default function Footer({ items }) {
     return (
         <footer className="stats">
             <em className="statsText">{percentage === 100 ? "You got everything! Ready to go!" : `You have ${numItems} items on your list, and you already packed ${numPacked}. (${percentage}%)`}</em>
+            <SocialMedia />
         </footer>
     )
 }

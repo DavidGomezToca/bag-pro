@@ -10,7 +10,7 @@
 
 - **STACK :**
 
-  - **Bag Pro** : `1.10.0`
+  - **Bag Pro** : `1.11.0`
   - **React** : `18.3.1`
   - **React Dom** : `18.3.1`
   - **SweetAlert2** : `11.12.3`
@@ -26,3 +26,4 @@
 - **CREDITS :**
 
   - **Author : [David Gómez](https://github.com/DavidGomezToca)**
+  - **Icons : [Font Awesome](https://fontawesome.com)**
