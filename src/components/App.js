@@ -1,8 +1,10 @@
+import { TranslationsContext } from "../contexts/TranslationsContext"
+
 import Logo from "./Logo"
 import Form from "./Form"
 import Footer from "./Footer"
 import Swal from "sweetalert2"
-import { useState } from "react"
+import { useState, useContext } from "react"
 import PackingList from "./PackingList"
 import ItemsData from "../data/ItemsData"
 
@@ -11,6 +13,18 @@ import ItemsData from "../data/ItemsData"
  * @returns {JSX.Element} - The App component.
  */
 export default function App() {
+  /**
+   * Translations context.
+   * @type {object}.
+   */
+  const { translations } = useContext(TranslationsContext)
+
+  /**
+   * Texts translated.
+   * @type {object}.
+   */
+  const texts = translations.app;
+
   /**
    * Initial items list.
    * @type {object}.
@@ -28,7 +42,7 @@ export default function App() {
 
   /**
    * Adds a new item to the list.
-   * @param {[number, string, number, boolean]} item - The item to add.
+   * @param {object} item - The item to add.
    */
   function handleAddItem(item) {
     setItems(items => [...items, item])
@@ -73,13 +87,14 @@ export default function App() {
   function handleClearList() {
     if (items.length > 0) {
       Swal.fire({
-        title: "You want to clear the list?",
-        text: "You won't be able to revert this!",
+        title: texts[0],
+        text: texts[1],
         icon: "question",
         showCancelButton: true,
         confirmButtonColor: "#3085d6",
         cancelButtonColor: "#d33",
-        confirmButtonText: "Yes, clear it!",
+        confirmButtonText: texts[2],
+        cancelButtonText: texts[3],
         customClass: {
           htmlContainer: "swal2-text",
           confirmButton: "swal2-text",
@@ -91,8 +106,8 @@ export default function App() {
           // Clear the list.
           setItems([])
           Swal.fire({
-            title: "Cleared!",
-            text: "The list has been cleared.",
+            title: texts[4],
+            text: texts[5],
             icon: "success",
             customClass: {
               htmlContainer: "swal2-text",
@@ -104,8 +119,8 @@ export default function App() {
       })
     } else {
       Swal.fire({
-        title: "The list is already clear!",
-        text: "¡Add some items to your packing list!",
+        title: texts[6],
+        text: texts[7],
         icon: "info",
         customClass: {
           htmlContainer: "swal2-text",

@@ -6,7 +6,7 @@ import { useEffect, useState } from "react"
  */
 export default function Logo() {
     /**
-     * If the screen is small.
+     * Checks if the screen is small.
      * @type {boolean, function}.
      */
     const [isSmallScreen, setIsSmallScreen] = useState(GetScreenSize())

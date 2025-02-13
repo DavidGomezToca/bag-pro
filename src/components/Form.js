@@ -1,4 +1,6 @@
-import { useState } from "react"
+import { TranslationsContext } from "../contexts/TranslationsContext"
+
+import { useState, useContext } from "react"
 
 /**
  * @component Form.
@@ -9,6 +11,18 @@ import { useState } from "react"
  * @returns {JSX.Element} - The Form component.
  */
 export default function Form({ items, addItem, addItemQuantity, setItemFalse }) {
+    /**
+     * Translations context.
+     * @type {object}.
+     */
+    const { translations } = useContext(TranslationsContext)
+
+    /**
+     * Texts translated.
+     * @type {object}.
+     */
+    const texts = translations.form;
+
     /**
      * Description of the item submitted.
      * @type {string, function}.
@@ -49,19 +63,19 @@ export default function Form({ items, addItem, addItemQuantity, setItemFalse }) 
     return (
         <form className="add-form" onSubmit={handleSubmit}>
             <div>
-                <h3>What do you need for your trip?</h3>
+                <h3>{texts[0]}</h3>
             </div>
             <div className="form-inputs">
                 <div>
                     <select id="quantity" name="quantity" value={quantity} onChange={(e) => setQuantity(Number(e.target.value))}>
                         {Array.from({ length: 5 }, (_, i) => i + 1).map(num => (<option value={num} key={num}>{num}</option>))}
                     </select>
-                    <input id="item_name" name="item_name" type="text" placeholder="Item..." maxLength="10" value={description} onChange={(e) => setDescription(e.target.value)} />
+                    <input id="item_name" name="item_name" type="text" placeholder={texts[1]} maxLength="10" value={description} onChange={(e) => setDescription(e.target.value)} />
                 </div>
                 <div>
-                    <button type="submit" className={`${description ? "" : "disabled"}`}>Add</button>
+                    <button type="submit" className={`${description ? "" : "disabled"}`}>{texts[2]}</button>
                 </div>
             </div>
-        </form >
+        </form>
     )
 }

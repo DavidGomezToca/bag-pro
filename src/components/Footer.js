@@ -1,5 +1,8 @@
+import { TranslationsContext } from "../contexts/TranslationsContext"
+
 import Swal from "sweetalert2"
 import SocialMedia from "./SocialMedia"
+import { useContext } from "react"
 
 /**
  * @component Footer.
@@ -7,6 +10,18 @@ import SocialMedia from "./SocialMedia"
  * @returns {JSX.Element} - The Footer component.
  */
 export default function Footer({ items }) {
+    /**
+     * Translations context.
+     * @type {object}.
+     */
+    const { translations } = useContext(TranslationsContext)
+
+    /**
+     * Texts translated.
+     * @type {object}.
+     */
+    const texts = translations.footer;
+
     /**
      * Number of items.
      * @type {number}.
@@ -29,18 +44,18 @@ export default function Footer({ items }) {
     if (!items.length) {
         return (
             <footer>
-                <p className="stats">
-                    <em>Start adding some items to your packing list ✈</em>
+                <div className="stats">
+                    <em>{texts[0]} ✈</em>
                     <SocialMedia />
-                </p>
+                </div>
             </footer>
         )
     }
     // If the percentage is 100%, display a success alert using SweetAlert2.
     if (percentage >= 100) {
         Swal.fire({
-            title: "Ready to go!",
-            text: "You got everything!",
+            title: texts[1],
+            text: texts[2],
             icon: "success",
             customClass: {
                 htmlContainer: "swal2-text",
@@ -52,7 +67,7 @@ export default function Footer({ items }) {
 
     return (
         <footer className="stats">
-            <em className="statsText">{percentage === 100 ? "You got everything! Ready to go!" : `You have ${numItems} items on your list, and you already packed ${numPacked}. (${percentage}%)`}</em>
+            <em className="statsText">{percentage === 100 ? `${texts[3]}` : `${texts[4]} ${numItems} ${texts[5]} ${numPacked}. (${percentage}%)`}</em>
             <SocialMedia />
         </footer>
     )

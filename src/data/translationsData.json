@@ -1,0 +1,134 @@
+{
+  "ES": {
+    "app": [
+      "¿Quieres borrar la lista?",
+      "¡No podrás revertir esto!",
+      "¡Sí, bórrar!",
+      "Cancelar",
+      "¡Lista borrada!",
+      "La lista ha sido borrada.",
+      "¡La lista ya está vacía!",
+      "¡Agrega algunos artículos a tu lista de equipaje!"
+    ],
+    "packingList": [
+      "La lista está vacía...",
+      "Ordenar por orden de entrada",
+      "Ordenar por nombre",
+      "Ordenar por estado de empaquetado",
+      "Anterior",
+      "Página",
+      "de",
+      "Siguiente",
+      "Borrar lista"
+    ],
+    "form": ["¿Qué necesitas para tu viaje?", "Artículo...", "Añadir"],
+    "footer": [
+      "Añade algunos artículos a tu lista de viaje",
+      "¡Todo listo para viajar!",
+      "¡Lo tienes todo!",
+      "¡Lo Tienes todo! ¡Todo listo para ir!",
+      "Tienes",
+      "artículos en tu lista, y ya has empacado"
+    ]
+  },
+  "FR": {
+    "app": [
+      "Voulez-vous effacer la liste?",
+      "Vous ne pourrez pas annuler cela!",
+      "Oui, effacer!",
+      "Annuler",
+      "Liste effacée!",
+      "La liste a été effacée.",
+      "La liste est déjà effacée!",
+      "Ajoutez des éléments à votre liste de bagages!"
+    ],
+    "packingList": [
+      "La liste est vide...",
+      "Trier par ordre d'entrée",
+      "Trier par nom",
+      "Trier par statut d'emballage",
+      "Précédent",
+      "Page",
+      "de",
+      "Suivant",
+      "Effacer la liste"
+    ],
+    "form": [
+      "De quoi avez-vous besoin pour votre voyage?",
+      "Article...",
+      "Ajouter"
+    ],
+    "footer": [
+      "Ajoutez des articles à votre liste de bagages",
+      "Prêt à partir!",
+      "Vous avez tout!",
+      "Vous avez tout! Prêt à partir!",
+      "Vous avez",
+      "articles dans votre liste, et vous avez déjà emballé"
+    ]
+  },
+  "EN": {
+    "app": [
+      "Do you want to clear the list?",
+      "You won't be able to revert this!",
+      "Yes, clear it!",
+      "Cancel",
+      "Cleared!",
+      "The list has been cleared.",
+      "The list is already clear!",
+      "Add some items to your packing list!"
+    ],
+    "form": ["What do you need for your trip?", "Item...", "Add"],
+    "packingList": [
+      "The List is empty...",
+      "Sort by input order",
+      "Sort by name",
+      "Sort by packed status",
+      "Previous",
+      "Page",
+      "of",
+      "Next",
+      "Clear list"
+    ],
+    "footer": [
+      "Start adding some items to your packing list",
+      "Ready to go!",
+      "You got everything!",
+      "You got everything! Ready to go!",
+      "You have",
+      "items on your list, and you already packed"
+    ]
+  },
+  "PT": {
+    "app": [
+      "Você quer limpar a lista?",
+      "Você não poderá reverter isso!",
+      "Sim, limpe-a!",
+      "Cancelar",
+      "Lista limpa!",
+      "A lista foi limpa.",
+      "A lista já está limpa!",
+      "Adicione alguns itens à sua lista de embalagem!"
+    ],
+    "packingList": [
+      "A lista está vazia...",
+      "Ordenar por ordem de entrada",
+      "Ordenar por nome",
+      "Ordenar por status de embalagem",
+      "Anterior",
+      "Página",
+      "de",
+      "Próximo",
+      "Limpar lista"
+    ],
+    "form": ["O que você precisa para sua viagem?", "Item...", "Adicionar"],
+    "footer": [
+      "Adiciona alguns itens à sua lista de embalagem",
+      "Pronto para ir!",
+      "Você tem tudo!",
+      "Você tem tudo! Pronto para ir!",
+      "Você tem",
+      "itens na sua lista, e você já embalou"
+    ]
+  }
+}

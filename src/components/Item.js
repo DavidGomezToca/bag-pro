@@ -1,6 +1,6 @@
 /**
  * @component Item.
- * @param {[number, string, number, boolean]} item - The item.
+ * @param {object} item - The item.
  * @param {function} onDeleteItem - Deletes an item from the list.
  * @param {function} onToggleItem - Toggles the packed status of an item.
  * @returns {JSX.Element} - The Item component.

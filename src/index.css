@@ -88,7 +88,7 @@ input {
   cursor: not-allowed;
 }
 
-.list {
+.packing-list {
   background-color: var(--brown);
   color: var(--yellow-light);
   padding: 4rem 0;
@@ -100,12 +100,12 @@ input {
   align-items: center;
 }
 
-.list-empty {
+.packing-list-empty {
   font-size: 3rem;
   font-style: italic;
 }
 
-.list ul {
+.packing-list ul {
   list-style: none;
   width: 80%;
   display: grid;
@@ -115,7 +115,7 @@ input {
   align-content: start;
 }
 
-.list li {
+.packing-list li {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -123,16 +123,18 @@ input {
 }
 
 .actions button,
-.list select {
+.packing-list select {
   text-transform: uppercase;
-  padding: 0.8rem 2.4rem;
+  padding: 0.8rem 1rem;
   font-size: 1.4rem;
-  font-weight: 700;
   margin: 0 0.8rem;
+  text-align: center;
 }
 
 .actions {
   display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .pagination {
@@ -151,7 +153,7 @@ input[type="checkbox"] {
   white-space: nowrap;
 }
 
-.list li button {
+.packing-list li button {
   cursor: pointer;
   background: none;
   border: none;
@@ -207,6 +209,17 @@ button {
 
 .swal2-popup {
   font-size: 12px !important;
+}
+
+.language-flag:hover {
+  cursor: pointer;
+}
+
+.language-flag {
+  margin-left: 20px;
+  width: 8rem;
+  border: solid var(--orange-light) 4px;
+  border-radius: 10px;
 }
 
 @media (max-width: 800px) {
